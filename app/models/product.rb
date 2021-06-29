@@ -6,11 +6,14 @@ class Product < ApplicationRecord
   validates :description, length: {in: 5..200}
   def tax
     price * 0.09
-end
+  end
 
   def total
     price + tax
-end
+  end
+
+  belongs_to :supplier
+  has_many :images
 
   def is_discounted?
     if price < 10
@@ -18,5 +21,5 @@ end
     else
       return false
     end
-end
+  end
 end
