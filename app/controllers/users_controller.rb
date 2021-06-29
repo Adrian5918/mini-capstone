@@ -17,5 +17,14 @@ class UsersController < ApplicationController
       user = User.all
       render json: user.as_json
     end
-  
-end
+
+    def update
+      the_id = params[:id]
+        user = User.find_by(id: the_id)
+        user.name =  params[:input_name],
+        #user.email = params[:input_email],
+        #user.password = params[:input_password],
+        user.save
+      render json: user.as_json
+    end
+  end

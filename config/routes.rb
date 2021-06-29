@@ -10,16 +10,20 @@ Rails.application.routes.draw do
   patch "/products/:id", controller: "products", action: "update"
   #delete an existing product
   delete "/products/:id", controller: "products", action: "destroy"
+
   post "/users", controller: "users", action: "create"
-  post "/sessions" => "sessons#create"
-
+  
+  get "/users", controller: "users", action: "index"
+  
   get "/users", controller: "users", action: "index"
 
+  patch "/users/:id", controller: "users", action: "update"
+  
   get "/orders", controller: "orders", action: "index"
-
+  
   post "/orders", controller: "orders", action: "create"
-
-  get "/users", controller: "users", action: "index"
-
-
+  
+  post "/sessions" => "sessons#create"
+  
+  
 end
