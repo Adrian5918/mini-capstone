@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
-  def index
-    orders = Order.all
+  before_action :authenticate_user
+  def index 
+    orders = Order.where(user_id: current_user.id)
     render json: orders.as_json
   end
 
