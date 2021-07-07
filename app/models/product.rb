@@ -9,13 +9,16 @@ class Product < ApplicationRecord
   end
 
   def total
-    price + tax
+  price + tax
   end
 
   belongs_to :supplier
   has_many :images
+  has_many :category_products
+  has_many :orders
+  has_many :categories, through: :category_products
 
-  def is_discounted?
+    def is_discounted?
     if price < 10
       return true
     else
