@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   
   post "/sessions" => "sessons#create"
   
+  post "/carted_products", controller: "carted_products", action: "create"
   
+  get "/carted_products", controller: "carted_products", action: "index"
 end
